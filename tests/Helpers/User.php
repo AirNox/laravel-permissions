@@ -12,4 +12,6 @@ use Illuminate\Foundation\Auth\Access\Authorizable as AuthorizableTrait;
 class User extends Model implements Authenticatable, Authorizable
 {
     use AuthenticatableTrait, AuthorizableTrait, HasPermissions;
+
+    protected $table = 'users';
 }

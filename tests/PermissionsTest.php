@@ -42,7 +42,9 @@ class PermissionsTest extends TestCase
     /** @test */
     function endpoint_that_requires_permissions_can_be_accessed_by_the_user_with_that_permission()
     {
-        auth()->login($user = new User);
+        $user = factory('Tests\Helpers\User')->create();
+
+        auth()->login($user);
 
         $user->givePermission('some-permission');
 

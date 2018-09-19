@@ -6,13 +6,23 @@ trait HasPermissions
 {
     protected $permissions = [];
 
+    public function permissions()
+    {
+        return $this->belongsToMany(
+            Permission::class,
+            'permissions_users'
+        );
+    }
+
     public function hasPermission($name)
     {
-        return in_array($name, $this->permissions);
+        return $this->permissions()->whereName($name)->exists();
     }
 
     public function givePermission($name)
     {
-        $this->permissions[] = $name;
+        $permission = Permission::firstOrCreate(compact('name'));
+
+        $this->permissions()->attach($permission);
     }
 }
