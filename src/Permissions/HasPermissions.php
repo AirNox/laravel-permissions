@@ -25,4 +25,11 @@ trait HasPermissions
 
         $this->permissions()->attach($permission);
     }
+
+    public function revokePermission($name)
+    {
+        $permission = Permission::firstOrCreate(compact('name'));
+
+        $this->permissions()->detach($permission);
+    }
 }
