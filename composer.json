@@ -1,0 +1,14 @@
+{
+    "name": "airnox/laravel-permissions",
+    "description": "Laravel permissions with roles and custom attributes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Krzysztof",
+            "email": "krzysztof@engineer.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
