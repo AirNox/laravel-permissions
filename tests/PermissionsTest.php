@@ -38,4 +38,15 @@ class PermissionsTest extends TestCase
         $this->get('/permissions')
             ->assertStatus(403);
     }
+
+    /** @test */
+    function endpoint_that_requires_permissions_can_be_accessed_by_the_user_with_that_permission()
+    {
+        auth()->login($user = new User);
+
+        $user->givePermission('some-permission');
+
+        $this->get('/permissions')
+            ->assertStatus(200);
+    }
 }

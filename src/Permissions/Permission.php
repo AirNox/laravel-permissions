@@ -1,6 +1,6 @@
 <?php
 
-namespace Airnox\Permissions;
+namespace Airnox\Permissions\Permissions;
 
 use Illuminate\Database\Eloquent\Model;
 
