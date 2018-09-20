@@ -10,7 +10,6 @@ class UsersPermissionsTest extends TestCase
     function users_can_have_permissions_assigned()
     {
         $user = factory('Tests\Helpers\User')->create();
-
         $user->givePermission('some-permission');
 
         $this->assertTrue(
