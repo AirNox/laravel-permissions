@@ -18,6 +18,7 @@ class CreatePermissionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('permission_id');
             $table->unsignedInteger('user_id');
+            $table->text('permission_attributes')->nullable();
             $table->timestamps();
         });
 

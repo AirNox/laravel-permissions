@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests;
+namespace Tests\Users;
 
 use Tests\Helpers\User;
+use Tests\TestCase;
 
 class UsersPermissionsTest extends TestCase
 {

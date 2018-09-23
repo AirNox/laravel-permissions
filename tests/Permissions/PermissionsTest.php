@@ -1,9 +1,10 @@
 <?php
 
-namespace Tests;
+namespace Tests\Permissions;
 
 use Illuminate\Support\Facades\Route;
 use Tests\Helpers\User;
+use Tests\TestCase;
 
 class PermissionsTest extends TestCase
 {
@@ -33,7 +34,7 @@ class PermissionsTest extends TestCase
     /** @test */
     function endpoint_that_requires_permissions_cannot_be_accessed_by_users_without_that_permission()
     {
-        auth()->login(new User);
+       $this->be(new User);
 
         $this->get('/permissions')
             ->assertStatus(403);
@@ -43,10 +44,8 @@ class PermissionsTest extends TestCase
     function endpoint_that_requires_permissions_can_be_accessed_by_the_user_with_that_permission()
     {
         $user = factory('Tests\Helpers\User')->create();
-
-        auth()->login($user);
-
         $user->givePermission('some-permission');
+        $this->be($user);
 
         $this->get('/permissions')
             ->assertStatus(200);
